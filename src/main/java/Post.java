@@ -5,6 +5,17 @@ public class Post {
     private String email;
     private String categoria;
     private String body;
+    private Boolean equipado = false;
+
+
+    public Boolean getEquipado() {
+        return equipado;
+    }
+
+    public void setEquipado(Boolean equipado) {
+        this.equipado = equipado;
+    }
+
 
 
     public String getCategoria() {

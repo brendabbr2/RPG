@@ -9,39 +9,44 @@ public class Personaje {
 
 
     //Sets
-    public Personaje (int vida, int magia, int ataque, int defensa, int energia, int dinero){
+    public Personaje (){
         //Antes de que me tiren un zapato: Ey esto solo así sirve
         //Yo quería tener todos los sets separados pero lanza error :c
-        this.vida = getVida() + vida;
-        this.magia = getMagia() + magia;
-        this.ataque = getAtaque() + ataque;
-        this.defensa = getDefensa() + defensa;
-        this.energia = getEnergia() + energia;
-        this.dinero = getDinero() + dinero;
+        this.vida = vida;
+        this.magia = magia;
+        this.ataque = ataque;
+        this.defensa = defensa;
+        this.energia = energia;
+        this.dinero = dinero;
     }
 
-    //Gets
     public int getVida() {
-        return vida;
-    }
+        return vida;}
+    public void setVida(int vida) {
+        this.vida = vida;}
+
     public int getMagia() {
-        return magia;
-    }
+        return magia;}
+    public void setMagia(int magia) {
+        this.magia = magia;}
 
     public int getAtaque() {
-        return ataque;
-    }
+        return ataque;}
+    public void setAtaque(int ataque) {
+        this.ataque = ataque;}
 
     public int getDefensa() {
-        return defensa;
-    }
+        return defensa;}
+    public void setDefensa(int defensa) {
+        this.defensa = defensa;}
 
     public int getEnergia() {
-        return energia;
-    }
+        return energia;}
+    public void setEnergia(int energia) {
+        this.energia = energia; }
 
     public static int getDinero() {
-        return dinero;
-    }
-
+        return dinero;}
+    public static void setDinero(int dinero) {
+        Personaje.dinero = dinero; }
 }

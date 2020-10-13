@@ -26,7 +26,7 @@
               <text value="Inventario"/>
             </properties>
           </component>
-          <component id="5092b" class="javax.swing.JButton" binding="Tienda">
+          <component id="5092b" class="javax.swing.JButton" binding="TiendaBoton">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -84,7 +84,7 @@
                         <properties/>
                         <border type="none"/>
                         <children>
-                          <grid id="c0750" binding="tienda2" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                          <grid id="c0750" binding="tienda2Panel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                             <margin top="0" left="0" bottom="0" right="0"/>
                             <constraints>
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -92,7 +92,7 @@
                             <properties/>
                             <border type="none"/>
                             <children>
-                              <component id="7564" class="javax.swing.JButton" binding="button2" default-binding="true">
+                              <component id="7564" class="javax.swing.JButton" binding="tienda2Boton">
                                 <constraints>
                                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                                 </constraints>
@@ -102,7 +102,7 @@
                               </component>
                             </children>
                           </grid>
-                          <grid id="8a828" binding="tienda4" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                          <grid id="8a828" binding="tienda4Panel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                             <margin top="0" left="0" bottom="0" right="0"/>
                             <constraints>
                               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -110,7 +110,7 @@
                             <properties/>
                             <border type="none"/>
                             <children>
-                              <component id="131d0" class="javax.swing.JButton" binding="button4" default-binding="true">
+                              <component id="131d0" class="javax.swing.JButton" binding="tienda4Boton">
                                 <constraints>
                                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                                 </constraints>
@@ -130,7 +130,7 @@
                         <properties/>
                         <border type="none"/>
                         <children>
-                          <grid id="25287" binding="tienda1" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                          <grid id="25287" binding="tienda1Panel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                             <margin top="0" left="0" bottom="0" right="0"/>
                             <constraints>
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -138,7 +138,7 @@
                             <properties/>
                             <border type="none"/>
                             <children>
-                              <component id="a69aa" class="javax.swing.JButton" binding="button1" default-binding="true">
+                              <component id="a69aa" class="javax.swing.JButton" binding="tienda1Boton">
                                 <constraints>
                                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                                 </constraints>
@@ -148,7 +148,7 @@
                               </component>
                             </children>
                           </grid>
-                          <grid id="b4a60" binding="tienda3" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                          <grid id="b4a60" binding="tienda3Panel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                             <margin top="0" left="0" bottom="0" right="0"/>
                             <constraints>
                               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -156,7 +156,7 @@
                             <properties/>
                             <border type="none"/>
                             <children>
-                              <component id="13926" class="javax.swing.JButton" binding="button3" default-binding="true">
+                              <component id="13926" class="javax.swing.JButton" binding="tienda3Boton">
                                 <constraints>
                                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                                 </constraints>
@@ -180,7 +180,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <grid id="373a" binding="tienda6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="373a" binding="tienda6Panel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -188,7 +188,7 @@
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <component id="2449" class="javax.swing.JButton" binding="button6" default-binding="true">
+                      <component id="2449" class="javax.swing.JButton" binding="tienda6Boton">
                         <constraints>
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
@@ -198,7 +198,7 @@
                       </component>
                     </children>
                   </grid>
-                  <grid id="f437d" binding="tienda8" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="f437d" binding="tienda8Panel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -206,7 +206,7 @@
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <component id="ebb5e" class="javax.swing.JButton" binding="button8" default-binding="true">
+                      <component id="ebb5e" class="javax.swing.JButton" binding="tienda8Boton">
                         <constraints>
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
@@ -226,7 +226,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <grid id="f2bdd" binding="tienda5" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="f2bdd" binding="tienda5Panel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -234,7 +234,7 @@
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <component id="ee836" class="javax.swing.JButton" binding="button5" default-binding="true">
+                      <component id="ee836" class="javax.swing.JButton" binding="tienda5Boton">
                         <constraints>
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
@@ -244,7 +244,7 @@
                       </component>
                     </children>
                   </grid>
-                  <grid id="28221" binding="tienda7" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="28221" binding="tienda7Panel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -252,7 +252,7 @@
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <component id="8bb43" class="javax.swing.JButton" binding="button7" default-binding="true">
+                      <component id="8bb43" class="javax.swing.JButton" binding="tienda7Boton">
                         <constraints>
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
