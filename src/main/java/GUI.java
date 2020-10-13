@@ -35,4 +35,6 @@ public class GUI {
     private JButton equiparItemButton;
     private JButton equipadoButton;
     private JButton desequiparItemButton;
+    private JPanel DineroPanel;
+    private JPanel DineroPanel2;
 }
