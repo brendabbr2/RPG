@@ -6,7 +6,24 @@ public class Post {
     private String categoria;
     private String body;
     private Boolean equipado = false;
+    private int cantidad=0;
+    private Boolean enMochila= false;
 
+    public Boolean getEnMochila() {
+        return enMochila;
+    }
+
+    public void setEnMochila(Boolean enMochila) {
+        this.enMochila = enMochila;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
 
     public Boolean getEquipado() {
         return equipado;
