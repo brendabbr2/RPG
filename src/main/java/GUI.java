@@ -1,12 +1,12 @@
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.IOException;
+import java.util.List;
 
 
-public class GUI {
-    public static class productos {
-        intentoAPI productosVenta = new intentoAPI();
-        System.out.println(productosVenta);
-
-    }
+public class GUI extends JFrame implements ActionListener{
+    private JPanel rootPanel;
 
     private JPanel Descripcion;
     private JPanel Acciones;
@@ -22,12 +22,13 @@ public class GUI {
     private JLabel Ataque;
     private JLabel Defensa;
     private JLabel Energía;
-    private JTextField dinero; {
-        int cantidad = Personaje.getDinero();
-        System.out.println(cantidad);
-        dinero.setText(String.valueOf(cantidad));
-    };
+    private JTextField dinero;
 
+    public void mostrarDinero(){
+        Personaje personajeObj = new Personaje(0, 0, 0, 0,0,0);
+        String plata = Integer.toString(personajeObj.getDinero());
+        dinero.setText(plata);
+    };
 
 
     private JTextField Descripcion_Objeto;
@@ -59,7 +60,27 @@ public class GUI {
     private JPanel tienda6;
     private JPanel tienda7;
     private JPanel tienda8;
+    private JButton button1;
 
-    public GUI() {
+    private JButton button2;
+    private JButton button3;
+    private JButton button4;
+    private JButton button5;
+    private JButton button6;
+    private JButton button7;
+    private JButton button8;
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
+    public GUI(){
+        add(rootPanel);
+        setTitle("Tienda RPG");
+        setSize(850,400);
+
+    }
+
+
+
 }

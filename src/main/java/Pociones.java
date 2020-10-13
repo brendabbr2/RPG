@@ -8,7 +8,7 @@ public class Pociones {
 
     public static void Pociones (){
 
-        Personaje PersonajeObj = new Personaje(pVida, pMagia, 0,0, pEnergia);
+        Personaje PersonajeObj = new Personaje(pVida, pMagia, 0,0, pEnergia, 0);
         PersonajeObj.getVida();
         PersonajeObj.getMagia();
         PersonajeObj.getEnergia();

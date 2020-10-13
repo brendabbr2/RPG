@@ -5,7 +5,7 @@ public class Comida {
 
     public static void Comida (){
 
-        Personaje PersonajeObj = new Personaje(cVida, 0, 0, 0, 0);
+        Personaje PersonajeObj = new Personaje(cVida, 0, 0, 0, 0, 0);
 
         PersonajeObj.getVida();
 

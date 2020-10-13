@@ -9,7 +9,7 @@ public class Personaje {
 
 
     //Sets
-    public Personaje (int vida, int magia, int ataque, int defensa, int energia){
+    public Personaje (int vida, int magia, int ataque, int defensa, int energia, int dinero){
         //Antes de que me tiren un zapato: Ey esto solo así sirve
         //Yo quería tener todos los sets separados pero lanza error :c
         this.vida = getVida() + vida;
@@ -17,6 +17,7 @@ public class Personaje {
         this.ataque = getAtaque() + ataque;
         this.defensa = getDefensa() + defensa;
         this.energia = getEnergia() + energia;
+        this.dinero = getDinero() + dinero;
     }
 
     //Gets
@@ -41,10 +42,6 @@ public class Personaje {
 
     public static int getDinero() {
         return dinero;
-    }
-
-    public void setDinero(int dinero) {
-        this.dinero = dinero;
     }
 
 }

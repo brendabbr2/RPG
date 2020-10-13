@@ -7,7 +7,7 @@ public class Artilleria {
 
     public static void Artilleria (){
 
-        Personaje PersonajeObj = new Personaje(0,0,aAtaque,aDefensa,0);
+        Personaje PersonajeObj = new Personaje(0,0,0,0,0, 0);
         PersonajeObj.getVida();
 
     }
