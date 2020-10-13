@@ -25,6 +25,21 @@ public class Personaje {
     public void setVida(int vida) {
         this.vida = vida;}
 
+    public void validarVida100(int sumaVida){
+        if (sumaVida>=100){
+            this.vida= 100;
+        }else{
+            this.vida= sumaVida;
+        }
+    }
+    public void setVidaParametro(String parametroX){
+        vida= getVida();
+        int cantLetrasBody= parametroX.length();
+        int cantLetrasParametro= cantLetrasBody/10;
+        validarVida100(vida+cantLetrasBody);
+
+    }
+
     public int getMagia() {
         return magia;}
     public void setMagia(int magia) {
