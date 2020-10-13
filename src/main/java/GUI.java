@@ -92,8 +92,6 @@ public class GUI extends JFrame implements ActionListener{
         tienda8Boton.setText(posts.get(8).getName().substring(1,10));
         tienda8Boton.setSize(100, 10);
 
-
-
         ActionListener task = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -214,13 +212,20 @@ public class GUI extends JFrame implements ActionListener{
             public void actionPerformed(ActionEvent e) {
                 for(int i=0; i<9; i++){
                     if(posts.get(i).getName().substring(1,10).equals(Nombre_Objeto.getText())){
-                        if(posts.get(i).getEquipado()==false){
+                        if (Meloria.getDinero() > posts.get(i).getEmail().length() * 7) {
+                            System.out.println("comprado");
                             posts.get(i).setEquipado(true);
-                            posts.get(i).setCantidad(posts.get(i).getCantidad()+1);
-                            Meloria.setDinero((Meloria.getDinero())-(posts.get(i).getEmail().length()*7));
-                            JOptionPane.showMessageDialog( null, "Artículo comprado por "+(posts.get(i).getEmail().length()*7)+" lorías.");
+                            posts.get(i).setCantidad(posts.get(i).getCantidad() + 1);
+                            Meloria.setDinero((Meloria.getDinero()) - (posts.get(i).getEmail().length()*7));
+                            Boolean confirmar= posts.get(1).getEquipado();
+                            String respuesta;
+                            if(confirmar==true){respuesta= posts.get(1).getCantidad()+" adquiridos.";
+                            }else{respuesta= "No posee el articulo.";}
+                            Poseer.setText(respuesta);
+
+                            JOptionPane.showMessageDialog(null, "Artículo comprado por " + (posts.get(i).getEmail().length()*7) + " lorías.");
                         }else{
-                            JOptionPane.showMessageDialog( null, "Usted ya posee este articulo.");
+                            JOptionPane.showMessageDialog(null, "Usted no posee suficiente dinero para comprar el producto.");
                         }
                     }
                 }
@@ -228,14 +233,27 @@ public class GUI extends JFrame implements ActionListener{
             }
         });
 
+
         venderItemButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 for(int i=0; i<9; i++){
                     if(posts.get(i).getName().substring(1,10).equals(Nombre_Objeto.getText())){
                         if(posts.get(i).getEquipado()==true){
-                            posts.get(i).setEquipado(false);
+                            if(posts.get(i).getCantidad()!=0){
+                                posts.get(i).setCantidad(posts.get(i).getCantidad()-1);
+                            }else{
+                                posts.get(i).setEquipado(false);
+                            }
                             Meloria.setDinero((Meloria.getDinero())+(posts.get(i).getEmail().length()*5));
+
+                            Boolean confirmar= posts.get(i).getEquipado();
+                            String respuesta;
+
+                            if(confirmar==true){respuesta= posts.get(1).getCantidad()+" adquiridos.";
+                            }else{respuesta= "No posee el articulo.";}
+                            Poseer.setText(respuesta);
+
                             JOptionPane.showMessageDialog( null, "Articulo vendido por: "+(posts.get(i).getEmail().length()*5)+" lorías.");
                         }else{
                             JOptionPane.showMessageDialog( null, "Usted no posee este articulo.");
