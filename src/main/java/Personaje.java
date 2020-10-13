@@ -5,6 +5,8 @@ public class Personaje {
     private int ataque= 7;
     private int defensa= 8;
     private int energia= 9;
+    private static int dinero=3000;
+
 
     //Sets
     public Personaje (int vida, int magia, int ataque, int defensa, int energia){
@@ -36,4 +38,13 @@ public class Personaje {
     public int getEnergia() {
         return energia;
     }
+
+    public static int getDinero() {
+        return dinero;
+    }
+
+    public void setDinero(int dinero) {
+        this.dinero = dinero;
+    }
+
 }

@@ -1,6 +1,13 @@
 import javax.swing.*;
 
+
 public class GUI {
+    public static class productos {
+        intentoAPI productosVenta = new intentoAPI();
+        System.out.println(productosVenta);
+
+    }
+
     private JPanel Descripcion;
     private JPanel Acciones;
     private JScrollPane Items;
@@ -15,7 +22,14 @@ public class GUI {
     private JLabel Ataque;
     private JLabel Defensa;
     private JLabel Energía;
-    private JTextField dinero;
+    private JTextField dinero; {
+        int cantidad = Personaje.getDinero();
+        System.out.println(cantidad);
+        dinero.setText(String.valueOf(cantidad));
+    };
+
+
+
     private JTextField Descripcion_Objeto;
     private JPanel Ganancia;
     private JPanel Stats;
@@ -37,4 +51,15 @@ public class GUI {
     private JButton desequiparItemButton;
     private JPanel DineroPanel;
     private JPanel DineroPanel2;
+    private JPanel tienda1;
+    private JPanel tienda2;
+    private JPanel tienda3;
+    private JPanel tienda4;
+    private JPanel tienda5;
+    private JPanel tienda6;
+    private JPanel tienda7;
+    private JPanel tienda8;
+
+    public GUI() {
+    }
 }
