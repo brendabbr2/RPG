@@ -60,7 +60,6 @@ public class GUI extends JFrame implements ActionListener{
     private JButton tienda7Boton;
     private JButton tienda8Boton;
     private JButton TiendaBoton;
-    private JTextField cantidadProductos;
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -112,7 +111,7 @@ public class GUI extends JFrame implements ActionListener{
                 Descripcion_Objeto.setText(posts.get(1).getBody());
                 Boolean confirmar= posts.get(1).getEquipado();
                 String respuesta;
-                if(confirmar==true){respuesta= "Ya posee el articulo.";
+                if(confirmar==true){respuesta= "Ya posee el articulo "+ posts.get(1).getCantidad()+" vez(veces).";
                 }else{respuesta= "No posee el articulo.";}
                 Poseer.setText(respuesta);
                 Cantidad.setText(String.valueOf(posts.get(1).getEmail().length()*7));
@@ -125,7 +124,7 @@ public class GUI extends JFrame implements ActionListener{
                 Descripcion_Objeto.setText(posts.get(2).getBody());
                 Boolean confirmar= posts.get(2).getEquipado();
                 String respuesta;
-                if(confirmar==true){respuesta= "Ya posee el articulo.";
+                if(confirmar==true){respuesta= "Ya posee el articulo "+ posts.get(2).getCantidad()+" vez(veces).";
                 }else{respuesta= "No posee el articulo.";}
                 Poseer.setText(respuesta);
                 Cantidad.setText(String.valueOf(posts.get(2).getEmail().length()*7));
@@ -138,7 +137,7 @@ public class GUI extends JFrame implements ActionListener{
                 Descripcion_Objeto.setText(posts.get(3).getBody());
                 Boolean confirmar= posts.get(3).getEquipado();
                 String respuesta;
-                if(confirmar==true){respuesta= "Ya posee el articulo.";
+                if(confirmar==true){respuesta= "Ya posee el articulo "+ posts.get(3).getCantidad()+" vez(veces).";
                 }else{respuesta= "No posee el articulo.";}
                 Poseer.setText(respuesta);
                 Cantidad.setText(String.valueOf(posts.get(3).getEmail().length()*7));
@@ -151,7 +150,7 @@ public class GUI extends JFrame implements ActionListener{
                 Descripcion_Objeto.setText(posts.get(4).getBody());
                 Boolean confirmar= posts.get(4).getEquipado();
                 String respuesta;
-                if(confirmar==true){respuesta= "Ya posee el articulo.";
+                if(confirmar==true){respuesta= "Ya posee el articulo "+ posts.get(4).getCantidad()+" vez(veces).";
                 }else{respuesta= "No posee el articulo.";}
                 Poseer.setText(respuesta);
                 Cantidad.setText(String.valueOf(posts.get(4).getEmail().length()*7));
@@ -164,7 +163,7 @@ public class GUI extends JFrame implements ActionListener{
                 Descripcion_Objeto.setText(posts.get(5).getBody());
                 Boolean confirmar= posts.get(5).getEquipado();
                 String respuesta;
-                if(confirmar==true){respuesta= "Ya posee el articulo.";
+                if(confirmar==true){respuesta= "Ya posee el articulo "+ posts.get(5).getCantidad()+" vez(veces).";
                 }else{respuesta= "No posee el articulo.";}
                 Poseer.setText(respuesta);
                 Cantidad.setText(String.valueOf(posts.get(5).getEmail().length()*7));
@@ -177,7 +176,7 @@ public class GUI extends JFrame implements ActionListener{
                 Descripcion_Objeto.setText(posts.get(6).getBody());
                 Boolean confirmar= posts.get(6).getEquipado();
                 String respuesta;
-                if(confirmar==true){respuesta= "Ya posee el articulo.";
+                if(confirmar==true){respuesta= "Ya posee el articulo "+ posts.get(6).getCantidad()+" vez(veces).";
                 }else{respuesta= "No posee el articulo.";}
                 Poseer.setText(respuesta);
                 Cantidad.setText(String.valueOf(posts.get(6).getEmail().length()*7));
@@ -190,7 +189,7 @@ public class GUI extends JFrame implements ActionListener{
                 Descripcion_Objeto.setText(posts.get(7).getBody());
                 Boolean confirmar= posts.get(7).getEquipado();
                 String respuesta;
-                if(confirmar==true){respuesta= "Ya posee el articulo.";
+                if(confirmar==true){respuesta= "Ya posee el articulo "+ posts.get(7).getCantidad()+" vez(veces).";
                 }else{respuesta= "No posee el articulo.";}
                 Poseer.setText(respuesta);
                 Cantidad.setText(String.valueOf(posts.get(7).getEmail().length()*7));
@@ -203,7 +202,7 @@ public class GUI extends JFrame implements ActionListener{
                 Descripcion_Objeto.setText(posts.get(8).getBody());
                 Boolean confirmar= posts.get(8).getEquipado();
                 String respuesta;
-                if(confirmar==true){respuesta= "Ya posee el articulo.";
+                if(confirmar==true){respuesta= "Ya posee el articulo "+ posts.get(8).getCantidad()+" vez(veces).";
                 }else{respuesta= "No posee el articulo.";}
                 Poseer.setText(respuesta);
                 Cantidad.setText(String.valueOf(posts.get(8).getEmail().length()*7));
@@ -217,6 +216,7 @@ public class GUI extends JFrame implements ActionListener{
                     if(posts.get(i).getName().substring(1,10).equals(Nombre_Objeto.getText())){
                         if(posts.get(i).getEquipado()==false){
                             posts.get(i).setEquipado(true);
+                            posts.get(i).setCantidad(posts.get(i).getCantidad()+1);
                             Meloria.setDinero((Meloria.getDinero())-(posts.get(i).getEmail().length()*7));
                             JOptionPane.showMessageDialog( null, "Artículo comprado por "+(posts.get(i).getEmail().length()*7)+" lorías.");
                         }else{
@@ -282,21 +282,19 @@ public class GUI extends JFrame implements ActionListener{
         Inventario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String inforInventario ="Usted posee los siguientes artículos:\n\n";
+
                 for(int i=0; i<9; i++){
-                    if(posts.get(i).getName().substring(1,10).equals(Nombre_Objeto.getText())){
-                        if(posts.get(i).getEquipado()==false){
-                            if(i==1){tienda1Boton.setEnabled(false);
-                            }else if(i==2){tienda2Boton.setEnabled(false);
-                            }else if(i==3){tienda3Boton.setEnabled(false);
-                            }else if(i==4){tienda4Boton.setEnabled(false);
-                            }else if(i==5){tienda5Boton.setEnabled(false);
-                            }else if(i==6){tienda6Boton.setEnabled(false);
-                            }else if(i==7){tienda7Boton.setEnabled(false);
-                            }else if(i==8){tienda8Boton.setEnabled(false);
-                            }
+                    if(posts.get(i).getEquipado()){
+                        if(posts.get(i).getEquipado()==true){
+                            inforInventario+= "Nombre: "+ posts.get(i).getName().substring(1,10)+"\n\tCantidad= "+ posts.get(i).getCantidad()+"\n";
                         }
                     }
                 }
+                if(inforInventario.equals("Usted posee los siguientes artículos:\n\n")){
+                    inforInventario= "Usted no posee artículos aún";
+                }
+                JOptionPane.showMessageDialog( null, inforInventario);
 
             }
         });
@@ -314,6 +312,26 @@ public class GUI extends JFrame implements ActionListener{
 
             }
         });
+        equipadoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String inforInventario ="Usted posee los siguientes artículos:\n\n";
+
+                for(int i=0; i<9; i++){
+                    if(posts.get(i).getEquipado()){
+                        if(posts.get(i).getEnMochila()==true){
+                            inforInventario+= "Nombre: "+ posts.get(i).getName().substring(1,10)+"\n\tCantidad= "+ posts.get(i).getCantidad()+"\n";
+                        }
+                    }
+                }
+                if(inforInventario.equals("Usted posee los siguientes artículos:\n\n")){
+                    inforInventario= "Usted no posee artículos aún";
+                }
+                JOptionPane.showMessageDialog( null, inforInventario);
+
+            }
+        });
+
     }
 
     public static void main(String[] args) {
