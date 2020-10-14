@@ -1,11 +1,11 @@
 public class Personaje {
     //Atributos
-    private int vida= 2;
-    private int magia= 6;
-    private int ataque= 7;
-    private int defensa= 8;
-    private int energia= 9;
-    private static int dinero=3000;
+    private int vida= 63;
+    private int magia= 40;
+    private int ataque= 35;
+    private int defensa= 67;
+    private int energia= 53;
+    private static int dinero=1327;
 
 
     //Sets

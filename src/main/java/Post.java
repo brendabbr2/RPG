@@ -8,6 +8,7 @@ public class Post {
     private Boolean equipado = false;
     private int cantidad=0;
     private Boolean enMochila= false;
+    private int cantEnMochila= 0
 
     public Boolean getEnMochila() {
         return enMochila;
@@ -31,20 +32,6 @@ public class Post {
 
     public void setEquipado(Boolean equipado) {
         this.equipado = equipado;
-    }
-
-
-
-    public String getCategoria() {
-        int valorDado= (int) Math.floor(Math.random()*4);
-        if (valorDado==1){
-            categoria= "Comida";
-        }else if(valorDado==2){
-            categoria="Artilleria";
-        }else{
-            categoria="Pociones";
-        }
-        return categoria;
     }
 
     public void setCategoria(String categoria) {
@@ -87,7 +74,17 @@ public class Post {
         return body;
     }
 
-
+    public String getCategoria() {
+        int largo = this.getName().length();
+        if (largo%2==0){
+            categoria= "Comida";
+        }else if(largo%3==0){
+            categoria="Artilleria";
+        }else{
+            categoria="Pociones";
+        }
+        return categoria;
+    }
 
     public void setBody(String body) {
         this.body = body;

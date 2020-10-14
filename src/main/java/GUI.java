@@ -24,11 +24,11 @@ public class GUI extends JFrame implements ActionListener{
     private JButton venderItemButton;
     private JTextField Poseer;
     private JTextField Cantidad;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JTextField textField5;
+    private JTextField nuevoVida;
+    private JTextField nuevoMagia;
+    private JTextField nuevoAtaque;
+    private JTextField nuevoDefensa;
+    private JTextField nuevoEnergia;
     private JTextField Nombre_Objeto;
     private JButton Inventario;
     private JButton Tienda;
@@ -54,30 +54,98 @@ public class GUI extends JFrame implements ActionListener{
     private JButton tienda7Boton;
     private JButton tienda8Boton;
     private JButton TiendaBoton;
-    private JTextField textField7;
-    private JTextField textField8;
-    private JTextField textField9;
-    private JTextField textField10;
-    private JTextField textField11;
-    private JTextField textField12;
-    private JTextField textField13;
-    private JTextField textField14;
-    private JTextField textField15;
+    private JTextField actualMagia;
+    private JTextField actualAtaque;
+    private JTextField actualDefensa;
+    private JTextField actualEnergia;
+    private JTextField cambioVida;
+    private JTextField cambioMagia;
+    private JTextField cambioAtaque;
+    private JTextField cambioDefensa;
+    private JTextField cambioEnergia;
+    private JTextField actualVida;
+    private JTextField espacioCategoria;
+    private JTextField Categoria;
     private JProgressBar progressBar1;
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
     }
+    Personaje Meloria = new Personaje();
+
+    public int sumaValores(int actual, int adicion){
+        int sumaValores= 0;
+        sumaValores= actual + adicion;
+        if (sumaValores>=100){
+            return 100;
+        }else{
+            return sumaValores;
+        }
+
+    }
+    public int restaValores(int actual, int adicion){
+        int sumaValores= 0;
+        sumaValores= actual - adicion;
+        if (sumaValores<=0){
+            return 0;
+        }else{
+            return sumaValores;
+        }
+
+    }
+
+    public void actualizarStatsGrafico(Post objeto){
+        int largoString= objeto.getBody().length()/10;
+        cambioAtaque.setText("");
+        nuevoAtaque.setText("");
+        cambioDefensa.setText("");
+        nuevoDefensa.setText("");
+        cambioVida.setText("");
+        nuevoVida.setText("");
+        cambioMagia.setText("");
+        nuevoMagia.setText("");
+        cambioEnergia.setText("");
+        nuevoEnergia.setText("");
+
+        actualVida.setText(String.valueOf(Meloria.getVida()));
+        actualAtaque.setText(String.valueOf(Meloria.getAtaque()));
+        actualDefensa.setText(String.valueOf(Meloria.getDefensa()));
+        actualMagia.setText(String.valueOf(Meloria.getMagia()));
+        actualEnergia.setText(String.valueOf(Meloria.getEnergia()));
+
+        if(objeto.getCategoria().equals("Comida")){
+            cambioVida.setText("+" + largoString);
+            nuevoVida.setText(String.valueOf(sumaValores(Meloria.getVida(), largoString)));
+
+        }else if(objeto.getCategoria().equals("Artilleria")){
+            cambioAtaque.setText("+" + objeto.getEmail().length());
+            nuevoAtaque.setText(String.valueOf(sumaValores(Meloria.getAtaque(), objeto.getEmail().length())));
+
+            cambioDefensa.setText("+" + (objeto.getEmail().length()*3)/5);
+            nuevoDefensa.setText(String.valueOf(sumaValores(Meloria.getDefensa(), (objeto.getEmail().length()*3)/5)));
+
+        }else{
+            cambioMagia.setText("+" + objeto.getId()*3);
+            nuevoMagia.setText(String.valueOf(sumaValores(Meloria.getMagia(), objeto.getId()*3)));
+
+            cambioEnergia.setText("+" + objeto.getEmail().length()*2);
+            nuevoEnergia.setText(String.valueOf(sumaValores(Meloria.getAtaque(), objeto.getEmail().length()*2)));
+        }
+    }
+
+
+
+
     public GUI() throws IOException, InterruptedException {
         List<Post> posts = intentoAPI.devolverValor();
 
         add(rootPanel);
         setTitle("Tienda RPG");
-        setSize(850, 400);
+        setSize(1100, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        Personaje Meloria = new Personaje();
+
 
         tienda1Boton.setText(posts.get(1).getName().substring(1, 10));
         tienda1Boton.setSize(20, 10);
@@ -100,17 +168,29 @@ public class GUI extends JFrame implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dinero.setText(String.valueOf(Meloria.getDinero()));
+                dinero.setEditable(false);//Si no sirve es por esta linea
             }
         };
+
         Timer timer = new Timer(100, task);
         timer.setRepeats(true);
         timer.start();
 
+
+
+
+
         tienda1Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                espacioCategoria.setText(posts.get(1).getCategoria());
+                actualizarStatsGrafico(posts.get(1));
+
                 Nombre_Objeto.setText(posts.get(1).getName().substring(1, 10));
+                Nombre_Objeto.setEditable(false);
                 Descripcion_Objeto.setText(posts.get(1).getBody());
+                Descripcion_Objeto.setEditable(false);
+
                 Boolean confirmar = posts.get(1).getEquipado();
                 String respuesta;
                 if (confirmar == true) {
@@ -120,13 +200,25 @@ public class GUI extends JFrame implements ActionListener{
                 }
                 Poseer.setText(respuesta);
                 Cantidad.setText(String.valueOf(posts.get(1).getEmail().length() * 7));
+                Cantidad.setEditable(false);
+                Poseer.setEditable(false);
             }
         });
         tienda2Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                espacioCategoria.setEditable(false);
+                Categoria.setEditable(false);
+
+
+                espacioCategoria.setText(posts.get(2).getCategoria());
+
+                actualizarStatsGrafico(posts.get(2));
+
                 Nombre_Objeto.setText(posts.get(2).getName().substring(1, 10));
+                Nombre_Objeto.setEditable(false);
                 Descripcion_Objeto.setText(posts.get(2).getBody());
+                Descripcion_Objeto.setEditable(false);
                 Boolean confirmar = posts.get(2).getEquipado();
                 String respuesta;
                 if (confirmar == true) {
@@ -135,14 +227,22 @@ public class GUI extends JFrame implements ActionListener{
                     respuesta = "No posee el articulo.";
                 }
                 Poseer.setText(respuesta);
+                Poseer.setEditable(false);
                 Cantidad.setText(String.valueOf(posts.get(2).getEmail().length() * 7));
+                Cantidad.setEditable(false);
             }
         });
         tienda3Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                espacioCategoria.setText(posts.get(3).getCategoria());
+
+                actualizarStatsGrafico(posts.get(3));
+
                 Nombre_Objeto.setText(posts.get(3).getName().substring(1, 10));
+                Nombre_Objeto.setEditable(false);
                 Descripcion_Objeto.setText(posts.get(3).getBody());
+                Descripcion_Objeto.setEditable(false);
                 Boolean confirmar = posts.get(3).getEquipado();
                 String respuesta;
                 if (confirmar == true) {
@@ -157,8 +257,13 @@ public class GUI extends JFrame implements ActionListener{
         tienda4Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                espacioCategoria.setText(posts.get(4).getCategoria());
+                actualizarStatsGrafico(posts.get(4));
+
                 Nombre_Objeto.setText(posts.get(4).getName().substring(1, 10));
+                Nombre_Objeto.setEditable(false);
                 Descripcion_Objeto.setText(posts.get(4).getBody());
+                Descripcion_Objeto.setEditable(false);
                 Boolean confirmar = posts.get(4).getEquipado();
                 String respuesta;
                 if (confirmar == true) {
@@ -167,14 +272,21 @@ public class GUI extends JFrame implements ActionListener{
                     respuesta = "No posee el articulo.";
                 }
                 Poseer.setText(respuesta);
+                Poseer.setEditable(false);
                 Cantidad.setText(String.valueOf(posts.get(4).getEmail().length() * 7));
+                Cantidad.setEditable(false);
             }
         });
         tienda5Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                espacioCategoria.setText(posts.get(5).getCategoria());
+                actualizarStatsGrafico(posts.get(5));
+
                 Nombre_Objeto.setText(posts.get(5).getName().substring(1, 10));
+                Nombre_Objeto.setEditable(false);
                 Descripcion_Objeto.setText(posts.get(5).getBody());
+                Descripcion_Objeto.setEditable(false);
                 Boolean confirmar = posts.get(5).getEquipado();
                 String respuesta;
                 if (confirmar == true) {
@@ -183,14 +295,21 @@ public class GUI extends JFrame implements ActionListener{
                     respuesta = "No posee el articulo.";
                 }
                 Poseer.setText(respuesta);
+                Poseer.setEditable(false);
                 Cantidad.setText(String.valueOf(posts.get(5).getEmail().length() * 7));
+                Cantidad.setEditable(false);
             }
         });
         tienda6Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                espacioCategoria.setText(posts.get(6).getCategoria());
+                actualizarStatsGrafico(posts.get(6));
+
                 Nombre_Objeto.setText(posts.get(6).getName().substring(1, 10));
+                Nombre_Objeto.setEditable(false);
                 Descripcion_Objeto.setText(posts.get(6).getBody());
+                Descripcion_Objeto.setEditable(false);
                 Boolean confirmar = posts.get(6).getEquipado();
                 String respuesta;
                 if (confirmar == true) {
@@ -199,14 +318,21 @@ public class GUI extends JFrame implements ActionListener{
                     respuesta = "No posee el articulo.";
                 }
                 Poseer.setText(respuesta);
+                Poseer.setEditable(false);
                 Cantidad.setText(String.valueOf(posts.get(6).getEmail().length() * 7));
+                Cantidad.setEditable(false);
             }
         });
         tienda7Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                espacioCategoria.setText(posts.get(7).getCategoria());
+                actualizarStatsGrafico(posts.get(7));
+
                 Nombre_Objeto.setText(posts.get(7).getName().substring(1, 10));
+                Nombre_Objeto.setEditable(false);
                 Descripcion_Objeto.setText(posts.get(7).getBody());
+                Descripcion_Objeto.setEditable(false);
                 Boolean confirmar = posts.get(7).getEquipado();
                 String respuesta;
                 if (confirmar == true) {
@@ -215,14 +341,21 @@ public class GUI extends JFrame implements ActionListener{
                     respuesta = "No posee el articulo.";
                 }
                 Poseer.setText(respuesta);
+                Poseer.setEditable(false);
                 Cantidad.setText(String.valueOf(posts.get(7).getEmail().length() * 7));
+                Cantidad.setEditable(false);
             }
         });
         tienda8Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                espacioCategoria.setText(posts.get(8).getCategoria());
+                actualizarStatsGrafico(posts.get(8));
+
                 Nombre_Objeto.setText(posts.get(8).getName().substring(1, 10));
+                Nombre_Objeto.setEditable(false);
                 Descripcion_Objeto.setText(posts.get(8).getBody());
+                Descripcion_Objeto.setEditable(false);
                 Boolean confirmar = posts.get(8).getEquipado();
                 String respuesta;
                 if (confirmar == true) {
@@ -231,7 +364,9 @@ public class GUI extends JFrame implements ActionListener{
                     respuesta = "No posee el articulo.";
                 }
                 Poseer.setText(respuesta);
+                Poseer.setEditable(false);
                 Cantidad.setText(String.valueOf(posts.get(8).getEmail().length() * 7));
+                Cantidad.setEditable(false);
             }
         });
 
@@ -253,7 +388,9 @@ public class GUI extends JFrame implements ActionListener{
                             }
                             Poseer.setText(respuesta);
 
+
                             JOptionPane.showMessageDialog(null, "Artículo comprado por " + (posts.get(i).getEmail().length() * 7) + " lorías.");
+
                         } else {
                             JOptionPane.showMessageDialog(null, "Usted no posee suficiente dinero para comprar el producto.");
                         }
@@ -303,6 +440,20 @@ public class GUI extends JFrame implements ActionListener{
                     if (posts.get(i).getName().substring(1, 10).equals(Nombre_Objeto.getText())) {
                         if (posts.get(i).getEquipado() == true) {
                             posts.get(i).setEnMochila(true);
+
+                            if(posts.get(i).getCategoria().equals("Comida")){
+                                Meloria.setVida(sumaValores(Meloria.getVida(), posts.get(i).getBody().length()/10));
+
+                            }else if(posts.get(i).getCategoria().equals("Artilleria")){
+                                Meloria.setAtaque(sumaValores(posts.get(i).getEmail().length(), Meloria.getAtaque()));
+                                Meloria.setDefensa(sumaValores((posts.get(i).getEmail().length()*3)/5, Meloria.getDefensa()));
+
+                            }else{
+                                Meloria.setMagia(sumaValores(posts.get(i).getId()*3, Meloria.getMagia()));
+                                Meloria.setEnergia(sumaValores(posts.get(i).getEmail().length()*2, Meloria.getEnergia()));
+                            }
+                            actualizarStatsGrafico(posts.get(i));
+
                             JOptionPane.showMessageDialog(null, "Articulo equipado.");
                         } else {
                             JOptionPane.showMessageDialog(null, "Usted no posee este articulo.");
@@ -319,6 +470,20 @@ public class GUI extends JFrame implements ActionListener{
                     if (posts.get(i).getName().substring(1, 10).equals(Nombre_Objeto.getText())) {
                         if (posts.get(i).getEnMochila() == true) {
                             posts.get(i).setEnMochila(false);
+
+                            if(posts.get(i).getCategoria().equals("Comida")){
+                                Meloria.setVida(restaValores(Meloria.getVida(), posts.get(i).getBody().length()/10));
+
+                            }else if(posts.get(i).getCategoria().equals("Artilleria")){
+                                Meloria.setAtaque(restaValores(posts.get(i).getEmail().length(), Meloria.getAtaque()));
+                                Meloria.setDefensa(restaValores((posts.get(i).getEmail().length()*3)/5, Meloria.getDefensa()));
+
+                            }else{
+                                Meloria.setMagia(restaValores(posts.get(i).getId()*3, Meloria.getMagia()));
+                                Meloria.setEnergia(restaValores(posts.get(i).getEmail().length()*2, Meloria.getEnergia()));
+                            }
+                            actualizarStatsGrafico(posts.get(i));
+
                             JOptionPane.showMessageDialog(null, "Articulo desequipado.");
                         } else {
                             JOptionPane.showMessageDialog(null, "Usted no posee este articulo equipado.");
@@ -383,22 +548,15 @@ public class GUI extends JFrame implements ActionListener{
             }
         });
 
-        progressBar1.addComponentListener(new ComponentAdapter() {
-        });
-        textField7.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
 
-            }
-        });
     }
-
 
     public static void main(String[] args) {
-
     }
 
-
-
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
+
