@@ -70,10 +70,9 @@ public class GUI extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
     }
-    Personaje Meloria = new Personaje();
 
+    Personaje Meloria = new Personaje();
     public int sumaValores(int actual, int adicion){
         int sumaValores= 0;
         sumaValores= actual + adicion;
@@ -96,6 +95,9 @@ public class GUI extends JFrame implements ActionListener{
     }
 
     public void actualizarStatsGrafico(Post objeto){
+        //F: Actualiza los porcentajes presentados en las barras de los stats.
+        //E: Objeto de clase Post.
+        //S: Labels de stats modificados.
         int largoString= objeto.getBody().length()/10;
         cambioAtaque.setText("");
         nuevoAtaque.setText("");
@@ -138,6 +140,10 @@ public class GUI extends JFrame implements ActionListener{
 
 
     public GUI() throws IOException, InterruptedException {
+        //F: Construccion de la interfaz grafica.
+        //E: Solicita la global ddel Personaje.
+        //S: Funciones que estan dentro de los botones del JFrame.
+
         Nombre_Objeto.setEditable(false);
         Categoria.setEditable(false);
         espacioCategoria.setEditable(false);
@@ -168,8 +174,6 @@ public class GUI extends JFrame implements ActionListener{
         setSize(1100, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-
-
         tienda1Boton.setText(posts.get(1).getName().substring(1, 10));
         tienda1Boton.setSize(20, 10);
         tienda2Boton.setText(posts.get(2).getName().substring(1, 10));
@@ -198,10 +202,6 @@ public class GUI extends JFrame implements ActionListener{
         Timer timer = new Timer(100, task);
         timer.setRepeats(true);
         timer.start();
-
-
-
-
 
         tienda1Boton.addActionListener(new ActionListener() {
             @Override
@@ -410,10 +410,7 @@ public class GUI extends JFrame implements ActionListener{
                                 respuesta = "No posee el articulo.";
                             }
                             Poseer.setText(respuesta);
-
-
                             JOptionPane.showMessageDialog(null, "Artículo comprado por " + (posts.get(i).getEmail().length() * 7) + " lorías.");
-
                         } else {
                             JOptionPane.showMessageDialog(null, "Usted no posee suficiente dinero para comprar el producto.");
                         }
@@ -422,7 +419,6 @@ public class GUI extends JFrame implements ActionListener{
 
             }
         });
-
 
         venderItemButton.addActionListener(new ActionListener() {
             @Override
@@ -518,10 +514,12 @@ public class GUI extends JFrame implements ActionListener{
             }
         });
 
-
         Inventario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //F: Muestra un cuadro de dialogo con una lista de elementos en inventario
+                //E: Elementos de la funcionalidad
+                //S: Cuadro de dialogo.
                 String inforInventario = "Usted posee los siguientes artículos:\n\n";
 
                 for (int i = 0; i < 9; i++) {
@@ -541,6 +539,10 @@ public class GUI extends JFrame implements ActionListener{
         TiendaBoton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //F: Setea todos los espacios de los botones a habilitados.
+                //E: las instanciaciones de los elementos
+                //S: Botones habilitados.
+
                 tienda1Boton.setEnabled(true);
                 tienda2Boton.setEnabled(true);
                 tienda3Boton.setEnabled(true);
@@ -555,6 +557,9 @@ public class GUI extends JFrame implements ActionListener{
         equipadoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //F: Muestra un cuadro de dialogo con los elementos que puede guardar el Personaje.
+                //E: La instanciacion de los elementos dentro del JFrame
+                //S: Interfaz grafica con las funcionalidades.
                 String inforInventario = "Usted posee los siguientes artículos:\n\n";
 
                 for (int i = 0; i < 9; i++) {
@@ -572,16 +577,12 @@ public class GUI extends JFrame implements ActionListener{
             }
         });
 
-
-
     }
 
     public static void main(String[] args) {
-
     }
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }
 }
-

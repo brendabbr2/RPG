@@ -12,6 +12,10 @@ import java.util.List;
 public class intentoAPI{
 
     public static List devolverValor() throws IOException, InterruptedException {
+    //F: Solicita la llamada de la API a JSONPlaceHolder.
+    //E: URL y headers de las paginas.
+    //S: Una lista con objetos tipo Post.
+
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .GET()
@@ -23,8 +27,6 @@ public class intentoAPI{
         ObjectMapper mapper = new ObjectMapper();
         List<Post> posts = mapper.readValue(response.body(), new TypeReference<List<Post>>() {
         });
-        //Post articulo = new Post;
-        System.out.println(posts.get(1).getEmail());
 
     return posts;
     }

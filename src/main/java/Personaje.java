@@ -10,8 +10,6 @@ public class Personaje {
 
     //Sets
     public Personaje (){
-        //Antes de que me tiren un zapato: Ey esto solo así sirve
-        //Yo quería tener todos los sets separados pero lanza error :c
         this.vida = vida;
         this.magia = magia;
         this.ataque = ataque;
