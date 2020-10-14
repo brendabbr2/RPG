@@ -138,6 +138,29 @@ public class GUI extends JFrame implements ActionListener{
 
 
     public GUI() throws IOException, InterruptedException {
+        Nombre_Objeto.setEditable(false);
+        Categoria.setEditable(false);
+        espacioCategoria.setEditable(false);
+        Descripcion_Objeto.setEditable(false);
+        Poseer.setEditable(false);
+        Cantidad.setEditable(false);
+        dinero.setEditable(false);
+        actualVida.setEditable(false);
+        nuevoVida.setEditable(false);
+        cambioVida.setEditable(false);
+        actualAtaque.setEditable(false);
+        nuevoAtaque.setEditable(false);
+        cambioAtaque.setEditable(false);
+        actualDefensa.setEditable(false);
+        nuevoDefensa.setEditable(false);
+        cambioDefensa.setEditable(false);
+        actualEnergia.setEditable(false);
+        nuevoEnergia.setEditable(false);
+        cambioEnergia.setEditable(false);
+        actualMagia.setEditable(false);
+        nuevoMagia.setEditable(false);
+        cambioMagia.setEditable(false);
+
         List<Post> posts = intentoAPI.devolverValor();
 
         add(rootPanel);
@@ -423,6 +446,7 @@ public class GUI extends JFrame implements ActionListener{
                                 respuesta = "No posee el articulo.";
                             }
                             Poseer.setText(respuesta);
+                            posts.get(i).setCantEnMochila(posts.get(i).getCantidad());
 
                             JOptionPane.showMessageDialog(null, "Articulo vendido por: " + (posts.get(i).getEmail().length() * 5) + " lorías.");
                         } else {
@@ -475,12 +499,12 @@ public class GUI extends JFrame implements ActionListener{
                                 Meloria.setVida(restaValores(Meloria.getVida(), posts.get(i).getBody().length()/10));
 
                             }else if(posts.get(i).getCategoria().equals("Artilleria")){
-                                Meloria.setAtaque(restaValores(posts.get(i).getEmail().length(), Meloria.getAtaque()));
-                                Meloria.setDefensa(restaValores((posts.get(i).getEmail().length()*3)/5, Meloria.getDefensa()));
+                                Meloria.setAtaque(restaValores( Meloria.getAtaque(), posts.get(i).getEmail().length()));
+                                Meloria.setDefensa(restaValores(Meloria.getDefensa(),(posts.get(i).getEmail().length()*3)/5 ));
 
                             }else{
-                                Meloria.setMagia(restaValores(posts.get(i).getId()*3, Meloria.getMagia()));
-                                Meloria.setEnergia(restaValores(posts.get(i).getEmail().length()*2, Meloria.getEnergia()));
+                                Meloria.setMagia(restaValores(Meloria.getMagia(), posts.get(i).getId()*3));
+                                Meloria.setEnergia(restaValores(Meloria.getEnergia(), posts.get(i).getEmail().length()*2));
                             }
                             actualizarStatsGrafico(posts.get(i));
 
@@ -553,6 +577,7 @@ public class GUI extends JFrame implements ActionListener{
     }
 
     public static void main(String[] args) {
+
     }
 
     private void createUIComponents() {

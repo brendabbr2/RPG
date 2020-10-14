@@ -8,7 +8,15 @@ public class Post {
     private Boolean equipado = false;
     private int cantidad=0;
     private Boolean enMochila= false;
-    private int cantEnMochila= 0
+    private int cantEnMochila= 0;
+
+    public int getCantEnMochila() {
+        return cantEnMochila;
+    }
+
+    public void setCantEnMochila(int cantEnMochila) {
+        this.cantEnMochila = cantEnMochila;
+    }
 
     public Boolean getEnMochila() {
         return enMochila;
