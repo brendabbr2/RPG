@@ -66,6 +66,7 @@ public class GUI extends JFrame implements ActionListener{
     private JTextField actualVida;
     private JTextField espacioCategoria;
     private JTextField Categoria;
+    private JTextField estaEquipado;
     private JProgressBar progressBar1;
 
     @Override
@@ -206,6 +207,12 @@ public class GUI extends JFrame implements ActionListener{
         tienda1Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String estaEquipadoAux="";
+                if(posts.get(1).getEnMochila()==false){
+                    estaEquipado.setText("Este articulo no esta equipado");
+                }else{
+                    estaEquipado.setText("Este articulo esta equipado.");
+                }
                 espacioCategoria.setText(posts.get(1).getCategoria());
                 actualizarStatsGrafico(posts.get(1));
 
@@ -230,6 +237,11 @@ public class GUI extends JFrame implements ActionListener{
         tienda2Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(posts.get(2).getEnMochila()==false){
+                    estaEquipado.setText("Este articulo no esta equipado");
+                }else{
+                    estaEquipado.setText("Este articulo esta equipado.");
+                }
                 espacioCategoria.setEditable(false);
                 Categoria.setEditable(false);
 
@@ -258,6 +270,11 @@ public class GUI extends JFrame implements ActionListener{
         tienda3Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(posts.get(3).getEnMochila()==false){
+                    estaEquipado.setText("Este articulo no esta equipado");
+                }else{
+                    estaEquipado.setText("Este articulo esta equipado.");
+                }
                 espacioCategoria.setText(posts.get(3).getCategoria());
 
                 actualizarStatsGrafico(posts.get(3));
@@ -280,6 +297,11 @@ public class GUI extends JFrame implements ActionListener{
         tienda4Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(posts.get(4).getEnMochila()==false){
+                    estaEquipado.setText("Este articulo no esta equipado");
+                }else{
+                    estaEquipado.setText("Este articulo esta equipado.");
+                }
                 espacioCategoria.setText(posts.get(4).getCategoria());
                 actualizarStatsGrafico(posts.get(4));
 
@@ -303,6 +325,11 @@ public class GUI extends JFrame implements ActionListener{
         tienda5Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(posts.get(5).getEnMochila()==false){
+                    estaEquipado.setText("Este articulo no esta equipado");
+                }else{
+                    estaEquipado.setText("Este articulo esta equipado.");
+                }
                 espacioCategoria.setText(posts.get(5).getCategoria());
                 actualizarStatsGrafico(posts.get(5));
 
@@ -326,6 +353,11 @@ public class GUI extends JFrame implements ActionListener{
         tienda6Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(posts.get(6).getEnMochila()==false){
+                    estaEquipado.setText("Este articulo no esta equipado");
+                }else{
+                    estaEquipado.setText("Este articulo esta equipado.");
+                }
                 espacioCategoria.setText(posts.get(6).getCategoria());
                 actualizarStatsGrafico(posts.get(6));
 
@@ -349,6 +381,11 @@ public class GUI extends JFrame implements ActionListener{
         tienda7Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(posts.get(7).getEnMochila()==false){
+                    estaEquipado.setText("Este articulo no esta equipado");
+                }else{
+                    estaEquipado.setText("Este articulo esta equipado.");
+                }
                 espacioCategoria.setText(posts.get(7).getCategoria());
                 actualizarStatsGrafico(posts.get(7));
 
@@ -372,6 +409,11 @@ public class GUI extends JFrame implements ActionListener{
         tienda8Boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(posts.get(8).getEnMochila()==false){
+                    estaEquipado.setText("Este articulo no esta equipado");
+                }else{
+                    estaEquipado.setText("Este articulo esta equipado.");
+                }
                 espacioCategoria.setText(posts.get(8).getCategoria());
                 actualizarStatsGrafico(posts.get(8));
 
@@ -426,6 +468,11 @@ public class GUI extends JFrame implements ActionListener{
                 for (int i = 0; i < 9; i++) {
                     if (posts.get(i).getName().substring(1, 10).equals(Nombre_Objeto.getText())) {
                         if (posts.get(i).getEquipado() == true) {
+                            if(posts.get(i).getEnMochila()==false){
+                                estaEquipado.setText("Este articulo no esta equipado");
+                            }else{
+                                estaEquipado.setText("Este articulo esta equipado.");
+                            }
                             if (posts.get(i).getCantidad() > 1) {
                                 posts.get(i).setCantidad(posts.get(i).getCantidad() - 1);
                             } else {
@@ -460,6 +507,11 @@ public class GUI extends JFrame implements ActionListener{
                     if (posts.get(i).getName().substring(1, 10).equals(Nombre_Objeto.getText())) {
                         if (posts.get(i).getEquipado() == true) {
                             posts.get(i).setEnMochila(true);
+                            if(posts.get(i).getEnMochila()==false){
+                                estaEquipado.setText("Este articulo no esta equipado");
+                            }else{
+                                estaEquipado.setText("Este articulo esta equipado.");
+                            }
 
                             if(posts.get(i).getCategoria().equals("Comida")){
                                 Meloria.setVida(sumaValores(Meloria.getVida(), posts.get(i).getBody().length()/10));
@@ -490,6 +542,11 @@ public class GUI extends JFrame implements ActionListener{
                     if (posts.get(i).getName().substring(1, 10).equals(Nombre_Objeto.getText())) {
                         if (posts.get(i).getEnMochila() == true) {
                             posts.get(i).setEnMochila(false);
+                            if(posts.get(i).getEnMochila()==false){
+                                estaEquipado.setText("Este articulo no esta equipado");
+                            }else{
+                                estaEquipado.setText("Este articulo esta equipado.");
+                            }
 
                             if(posts.get(i).getCategoria().equals("Comida")){
                                 Meloria.setVida(restaValores(Meloria.getVida(), posts.get(i).getBody().length()/10));
